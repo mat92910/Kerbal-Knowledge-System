@@ -1,0 +1,6 @@
+Id: first digit represents the planet, second the satellite, third the orbit.
+Name: name of the celestial body position.
+Links: possible nest destination.
+DeltaV: Delta V needed to get to the Link.
+MaxPlaneChangeDeltaV: Delta V nedded to modify orbital inclination fron 0 degrees.
+Aerobreaking: if Aerobreaking is possible

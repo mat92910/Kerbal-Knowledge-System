@@ -1,37 +1,109 @@
 [
     {
-        "name": "Kerbin Surface",
+        "Id": 300,
+        "Name": "Kerbin Surface",
         "Links": [
             {
                 "Name": "Low Kerbin Orbit",
-                "DeltaV": 3400
+                "DeltaV": 3400,
+                "MaxPlaneChangeDeltaV": 0
             }
         ]
     },
     {
-        "name": "Low Kerbin Orbit",
+        "Id": 301,
+        "Name": "Kerbin Low Orbit",
         "Links": [
             {
+                "Id": 300,
                 "Name": "Kerbin Surface",
                 "DeltaV": 3400,
+                "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": true
             },
             {
+                "Id": 312,
                 "Name": "Mun Intercept",
                 "DeltaV": 860,
+                "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             },
             {
+                "Id": 302,
                 "Name": "Kerbin Elliptical Orbit",
                 "DeltaV": 930,
+                "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             },
             {
+                "Id": 322,
                 "Name": "Minmus Intercept",
                 "DeltaV": 930,
+                "MaxPlaneChangeDeltaV": 340,
+                "Aerobreaking": false
+            }
+        ]
+    },
+    {
+        "Id": 302,
+        "Name": "Kerbin Elliptical Orbit",
+        "Links": [
+            {
+                "Id": 301,
+                "Name": "Kerbin Low Orbit",
+                "DeltaV": 930,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": true
+            },
+            {
+                "Id": 902,
+                "Name": "Kerbol Elliptical Orbit",
+                "DeltaV": 6000,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            },
+            {
+                "Id": 102,
+                "Name": "Moho Intercept",
+                "DeltaV": 760,
+                "MaxPlaneChangeDeltaV": 2520,
+                "Aerobreaking": false
+            },
+            {
+                "Id": 202,
+                "Name": "Eve Intercept",
+                "DeltaV": 90,
+                "MaxPlaneChangeDeltaV": 430,
+                "Aerobreaking": false
+            },
+            {
+                "Id": 402,
+                "Name": "Duna Intercept",
+                "DeltaV": 130,
+                "MaxPlaneChangeDeltaV": 10,
+                "Aerobreaking": false
+            },
+            {
+                "Id": 502,
+                "Name": "Dres Intercept",
+                "DeltaV": 610,
+                "MaxPlaneChangeDeltaV": 1010,
+                "Aerobreaking": false
+            },
+            {
+                "Id": 602,
+                "Name": "Jool Intercept",
+                "DeltaV": 980,
+                "MaxPlaneChangeDeltaV": 270,
+                "Aerobreaking": false
+            },
+            {
+                "Id": 702,
+                "Name": "Eeloo Intercept",
+                "DeltaV": 1140,
+                "MaxPlaneChangeDeltaV": 1330,
                 "Aerobreaking": false
             }
         ]
     }
-
 ]
