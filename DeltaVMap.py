@@ -1,16 +1,9 @@
 import json
 from pathlib import Path
 
-#DeltaVMap Dictionary key: id; value: {links with [deltaV value, MaxPlaneChangeDeltaV value, Aerobreaking]}
-#Example
-#DeltaVMap = {101:{100:[870,0,False], 103:[2400,0,False]}}
-DeltaVMap = {}
-NameList = {}
-
 #Add link between parent node and child with delta-v, plane change Delta-v and arebreaking as sub dictionary
 #returns true if added, false if not
-def AddLinkToDeltaVMap(node, link, deltaV, planeChangeDeltaV, aerobreaking):
-    global DeltaVMap
+def AddLinkToDeltaVMap(DeltaVMap, node, link, deltaV, planeChangeDeltaV, aerobreaking):
     #check if node is in dictionary if yes continue else create
     if(node in DeltaVMap.keys()):
         #check if link is in sub dictioanry if yes return false else create fill sub dictionary with delta-v, plane change Delta-v and arebreaking as sub dictionary
@@ -44,7 +37,7 @@ def GetValuesFromDeltaVMap(DeltaVMap, node, link):
 
 #Populates DeltaVMap with values with given file
 def PopulateDeltaVMap(file):
-    global DeltaVMap
+    DeltaVMap = {}
     filePath = Path(file)
     if(filePath.is_file()):
         with open(file) as DeltaVMapFile:
@@ -52,11 +45,13 @@ def PopulateDeltaVMap(file):
     
     for Nodes in DeltaVMapContents:
         for Links in Nodes["Links"]:
-            AddLinkToDeltaVMap(Nodes["Id"], Links["Id"], Links["DeltaV"], Links["MaxPlaneChangeDeltaV"], Links["Aerobreaking"])
+            AddLinkToDeltaVMap(DeltaVMap, Nodes["Id"], Links["Id"], Links["DeltaV"], Links["MaxPlaneChangeDeltaV"], Links["Aerobreaking"])
+
+    return DeltaVMap
 
 #Populates NameList with values with given file
 def PopulateNameList(file):
-    global NameList
+    NameList = {}
     filePath = Path(file)
     if(filePath.is_file()):
         with open(file) as DeltaVMapFile:
@@ -64,6 +59,8 @@ def PopulateNameList(file):
     
     for Nodes in DeltaVMapContents:
         NameList[Nodes["Id"]] = Nodes["Name"]
+
+    return NameList
 
 #print the DeltaVMap to console
 def PrintDeltaVMap(DeltaVMap, NameList):
@@ -78,13 +75,9 @@ def PrintDeltaVMap(DeltaVMap, NameList):
 #Populates the DeltaVMap with the file
 #returns a Copy of the Populated DeltaVMap
 def GetDeltaVMap():
-    global DeltaVMap
-    PopulateDeltaVMap("./KnowledgeBase/DeltaVMap.json")
-    return DeltaVMap.copy()
+    return PopulateDeltaVMap("./KnowledgeBase/DeltaVMap.json")
 
 #Populates the NameList with the file
 #returns a Copy of the Populated NameList
 def GetNameList():
-    global NameList
-    PopulateNameList("./KnowledgeBase/DeltaVMap.json")
-    return NameList.copy()
+    return PopulateNameList("./KnowledgeBase/DeltaVMap.json")
