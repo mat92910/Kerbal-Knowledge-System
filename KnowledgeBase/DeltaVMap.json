@@ -584,5 +584,127 @@
                 "Aerobreaking": false
             }
         ]
+    },
+    {
+        "Id": 503,
+        "Name": "Dres Intercept",
+        "Links": [
+            {
+                "Id": 302,
+                "Name": "Kerbin Elliptical Orbit",
+                "DeltaV": 610,
+                "MaxPlaneChangeDeltaV": 1010,
+                "Aerobreaking": true
+            },
+            {
+                "Id": 501,
+                "Name": "Dres Low Orbit",
+                "DeltaV": 1300,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            }
+        ]
+    },
+    {
+        "Id": 501,
+        "Name": "Dres Low Orbit",
+        "Links": [
+            {
+                "Id": 503,
+                "Name": "Dres Intercept",
+                "DeltaV": 1300,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            },
+            {
+                "Id": 500,
+                "Name": "Dres Surface",
+                "DeltaV": 430,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            }
+        ]
+    },
+    {
+        "Id": 500,
+        "Name": "Dres Surface",
+        "Links": [
+            {
+                "Id": 501,
+                "Name": "Dres Low Orbit",
+                "DeltaV": 430,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            }
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+        "Id": 703,
+        "Name": "Eeloo Intercept",
+        "Links": [
+            {
+                "Id": 302,
+                "Name": "Kerbin Elliptical Orbit",
+                "DeltaV": 1140,
+                "MaxPlaneChangeDeltaV": 1330,
+                "Aerobreaking": true
+            },
+            {
+                "Id": 701,
+                "Name": "Eeloo Low Orbit",
+                "DeltaV": 1370,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            }
+        ]
+    },
+    {
+        "Id": 701,
+        "Name": "Eeloo Low Orbit",
+        "Links": [
+            {
+                "Id": 703,
+                "Name": "Eeloo Intercept",
+                "DeltaV": 1370,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            },
+            {
+                "Id": 700,
+                "Name": "Eeloo Surface",
+                "DeltaV": 620,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            }
+        ]
+    },
+    {
+        "Id": 700,
+        "Name": "Eeloo Surface",
+        "Links": [
+            {
+                "Id": 701,
+                "Name": "Eeloo Low Orbit",
+                "DeltaV": 620,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            }
+        ]
     }
 ]
