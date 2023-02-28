@@ -265,5 +265,78 @@
                 "Aerobreaking": false
             }
         ]
+    },
+    {
+        "Id": 103,
+        "Name": "Moho Intercept",
+        "Links": [
+            {
+                "Id": 302,
+                "Name": "Kerbin Elliptical Orbit",
+                "DeltaV": 760,
+                "MaxPlaneChangeDeltaV": 2520,
+                "Aerobreaking": true
+            },
+            {
+                "Id": 101,
+                "Name": "Moho Low Orbit",
+                "DeltaV": 2400,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            }
+        ]
+    },
+    {
+        "Id": 101,
+        "Name": "Moho Low Orbit",
+        "Links": [
+            {
+                "Id": 103,
+                "Name": "Moho Intercept",
+                "DeltaV": 2400,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            },
+            {
+                "Id": 100,
+                "Name": "Moho Surface",
+                "DeltaV": 870,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            }
+        ]
+    },
+    {
+        "Id": 100,
+        "Name": "Moho Surface",
+        "Links": [
+            {
+                "Id": 101,
+                "Name": "Moho Low Orbit",
+                "DeltaV": 870,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
+            }
+        ]
+    },
+    {
+        "Id": 203,
+        "Name": "Eve Intercept",
+        "Links": [
+            {
+                "Id": 302,
+                "Name": "Kerbin Elliptical Orbit",
+                "DeltaV": 90,
+                "MaxPlaneChangeDeltaV": 430,
+                "Aerobreaking": true
+            },
+            {
+                "Id": 302,
+                "Name": "Eve Elliptical Orbit",
+                "DeltaV": 80,
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": true
+            }
+        ]
     }
 ]
