@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 #DeltaVMap Dictionary key: id; value: {links with [deltaV value, MaxPlaneChangeDeltaV value, Aerobreaking]}
+#Example
 #DeltaVMap = {101:{100:[870,0,False], 103:[2400,0,False]}}
 DeltaVMap = {}
 NameList = {}
