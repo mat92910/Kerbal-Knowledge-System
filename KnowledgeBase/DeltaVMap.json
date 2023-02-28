@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Kerbin Surface",
+        "Links": [
+            {
+                "Name": "Low Kerbin Orbit",
+                "DeltaV": 3400
+            }
+        ]
+    },
+    {
+        "name": "Low Kerbin Orbit",
+        "Links": [
+            {
+                "Name": "Kerbin Surface",
+                "DeltaV": 3400,
+                "Aerobreaking": true
+            },
+            {
+                "Name": "Mun Intercept",
+                "DeltaV": 860,
+                "Aerobreaking": false
+            },
+            {
+                "Name": "Kerbin Elliptical Orbit",
+                "DeltaV": 930,
+                "Aerobreaking": false
+            },
+            {
+                "Name": "Minmus Intercept",
+                "DeltaV": 930,
+                "Aerobreaking": false
+            }
+        ]
+    }
+
+]
