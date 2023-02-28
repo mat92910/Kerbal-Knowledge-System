@@ -7,7 +7,8 @@
                 "Id": 301,
                 "Name": "Low Kerbin Orbit",
                 "DeltaV": 3400,
-                "MaxPlaneChangeDeltaV": 0
+                "MaxPlaneChangeDeltaV": 0,
+                "Aerobreaking": false
             }
         ]
     },
@@ -302,7 +303,7 @@
                 "Name": "Moho Surface",
                 "DeltaV": 870,
                 "MaxPlaneChangeDeltaV": 0,
-                "Aerobreaking": false
+                "Aerobreaking": 0
             }
         ]
     },
