@@ -72,12 +72,14 @@ def generate_array():
     for i in range(entry_list.size()):
         value = int(entry_list.get(i).split(": ")[1])
         array.append(value)
-    print(array)# ######################################################### change prints to return values
+    # ######################################################### change prints to return values
+    print(array)
     print(is_checked.get())
+    # root.quit()
 
 # create a "Calculate" button to generate the array and start the expert system
-end_button = tk.Button(root, text="Calculate", command=generate_array)
-end_button.pack()
+calculate_button = tk.Button(root, text="Calculate", command=generate_array)
+calculate_button.pack()
 
 # run the main loop
 root.mainloop()
