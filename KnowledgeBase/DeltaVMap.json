@@ -10,7 +10,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 0,
+        "Position-y": 0 
     },
     {
         "Id": 301,
@@ -44,7 +46,9 @@
                 "MaxPlaneChangeDeltaV": 340,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 0,
+        "Position-y": 1 
     },
     {
         "Id": 302,
@@ -106,7 +110,9 @@
                 "MaxPlaneChangeDeltaV": 1330,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 0,
+        "Position-y": 2
     },
     {
         "Id": 313,
@@ -126,7 +132,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -1,
+        "Position-y": 1
     },
     {
         "Id": 311,
@@ -146,7 +154,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -2,
+        "Position-y": 1
     },
     {
         "Id": 310,
@@ -159,7 +169,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -3,
+        "Position-y": 1
     },
     {
         "Id": 323,
@@ -179,7 +191,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 1,
+        "Position-y": 1
     },
     {
         "Id": 321,
@@ -199,7 +213,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 2,
+        "Position-y": 1
     },
     {
         "Id": 320,
@@ -212,7 +228,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 3,
+        "Position-y": 1
     },
     {
         "Id": 902,
@@ -226,13 +244,15 @@
                 "Aerobreaking": true
             },
             {
-                "Id": 301,
+                "Id": 901,
                 "Name": "Kerbol Low Orbit",
                 "DeltaV": 13700,
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": true
             }
-        ]
+        ],
+        "Position-x": -2,
+        "Position-y": 2
     },
     {
         "Id": 901,
@@ -252,7 +272,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": true
             }
-        ]
+        ],
+        "Position-x": -3,
+        "Position-y": 2
     },
     {
         "Id": 900,
@@ -265,7 +287,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -4,
+        "Position-y": 2
     },
     {
         "Id": 103,
@@ -285,7 +309,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -1,
+        "Position-y": 3
     },
     {
         "Id": 101,
@@ -305,7 +331,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": 0
             }
-        ]
+        ],
+        "Position-x": -3,
+        "Position-y": 3
     },
     {
         "Id": 100,
@@ -318,7 +346,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -4,
+        "Position-y": 3
     },
     {
         "Id": 203,
@@ -338,7 +368,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": true
             }
-        ]
+        ],
+        "Position-x": -1,
+        "Position-y": 4
     },
     {
         "Id": 202,
@@ -359,13 +391,15 @@
                 "Aerobreaking": true
             },
             {
-                "Id": 313,
+                "Id": 213,
                 "Name": "Gilly Intercept",
                 "DeltaV": 60,
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -2,
+        "Position-y": 4
     },
     {
         "Id": 201,
@@ -385,7 +419,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": true
             }
-        ]
+        ],
+        "Position-x": -3,
+        "Position-y": 4
     },
     {
         "Id": 200,
@@ -398,7 +434,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -4,
+        "Position-y": 4
     },
     {
         "Id": 213,
@@ -418,7 +456,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -2,
+        "Position-y": 5
     },
     {
         "Id": 211,
@@ -438,7 +478,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -3,
+        "Position-y": 5
     },
     {
         "Id": 210,
@@ -451,7 +493,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -4,
+        "Position-y": 5
     },
     {
         "Id": 403,
@@ -471,7 +515,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": true
             }
-        ]
+        ],
+        "Position-x": -1,
+        "Position-y": 6
     },
     {
         "Id": 402,
@@ -498,7 +544,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -2,
+        "Position-y": 6
     },
     {
         "Id": 401,
@@ -518,7 +566,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": true
             }
-        ]
+        ],
+        "Position-x": -3,
+        "Position-y": 6
     },
     {
         "Id": 400,
@@ -531,7 +581,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -4,
+        "Position-y": 6
     },
     {
         "Id": 413,
@@ -551,7 +603,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -2,
+        "Position-y": 7
     },
     {
         "Id": 411,
@@ -571,7 +625,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -3,
+        "Position-y": 7
     },
     {
         "Id": 410,
@@ -584,7 +640,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -4,
+        "Position-y": 7
     },
     {
         "Id": 503,
@@ -604,7 +662,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -1,
+        "Position-y": 8
     },
     {
         "Id": 501,
@@ -624,7 +684,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -3,
+        "Position-y": 8
     },
     {
         "Id": 500,
@@ -637,7 +699,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": -4,
+        "Position-y": 8
     },
     {
         "Id": 603,
@@ -657,7 +721,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": true
             }
-        ]
+        ],
+        "Position-x": 1,
+        "Position-y": 3
     },
     {
         "Id": 602,
@@ -712,7 +778,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 2,
+        "Position-y": 3
     },
     {
         "Id": 601,
@@ -732,7 +800,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": true
             }
-        ]
+        ],
+        "Position-x": 3,
+        "Position-y": 3
     },
     {
         "Id": 600,
@@ -745,7 +815,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 4,
+        "Position-y": 3
     },
     {
         "Id": 613,
@@ -765,7 +837,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 1,
+        "Position-y": 5
     },
     {
         "Id": 611,
@@ -785,7 +859,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 1,
+        "Position-y": 6
     },
     {
         "Id": 610,
@@ -798,7 +874,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 1,
+        "Position-y": 7
     },
     {
         "Id": 623,
@@ -818,7 +896,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 2,
+        "Position-y": 5
     },
     {
         "Id": 621,
@@ -838,20 +918,24 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 2,
+        "Position-y": 6
     },
     {
         "Id": 620,
         "Name": "Bop Surface",
         "Links": [
             {
-                "Id": 611,
+                "Id": 621,
                 "Name": "Bop Low Orbit",
                 "DeltaV": 230,
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 2,
+        "Position-y": 7
     },
     {
         "Id": 633,
@@ -871,7 +955,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 3,
+        "Position-y": 5
     },
     {
         "Id": 631,
@@ -891,7 +977,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 3,
+        "Position-y": 6
     },
     {
         "Id": 630,
@@ -904,7 +992,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 3,
+        "Position-y": 7
     },
     {
         "Id": 643,
@@ -924,7 +1014,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 4,
+        "Position-y": 5
     },
     {
         "Id": 641,
@@ -944,7 +1036,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 4,
+        "Position-y": 6
     },
     {
         "Id": 640,
@@ -957,7 +1051,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 4,
+        "Position-y": 7
     },
     {
         "Id": 653,
@@ -977,7 +1073,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": true
             }
-        ]
+        ],
+        "Position-x": 5,
+        "Position-y": 5
     },
     {
         "Id": 651,
@@ -997,7 +1095,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": true
             }
-        ]
+        ],
+        "Position-x": 5,
+        "Position-y": 6
     },
     {
         "Id": 650,
@@ -1010,7 +1110,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 5,
+        "Position-y": 7
     },
     {
         "Id": 703,
@@ -1030,7 +1132,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 1,
+        "Position-y": 2
     },
     {
         "Id": 701,
@@ -1050,7 +1154,9 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 3,
+        "Position-y": 2
     },
     {
         "Id": 700,
@@ -1063,6 +1169,8 @@
                 "MaxPlaneChangeDeltaV": 0,
                 "Aerobreaking": false
             }
-        ]
+        ],
+        "Position-x": 4,
+        "Position-y": 2
     }
 ]

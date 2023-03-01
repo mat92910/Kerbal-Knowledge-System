@@ -24,6 +24,14 @@ def GetLinksFromDeltaVMap(DeltaVMap, node):
     else:
         return False
 
+#get node position from DeltaVMap
+#return x, y of position else return false
+def GetPositionFromDeltaVMap(DeltaVMap, node):
+    if(node in DeltaVMap.keys()):
+        return DeltaVMap[node], DeltaVMap[node]
+    else:
+        return False
+
 #get delta-v, plane change Delta-v and arebreaking
 #return dictionary with delta-v, plane change Delta-v and arebreaking or false if none
 def GetValuesFromDeltaVMap(DeltaVMap, node, link):
@@ -63,6 +71,20 @@ def PopulateNameList(file):
         NameList[Nodes["Id"]] = Nodes["Name"]
 
     return NameList
+    
+#Populates PositionList with values with given file
+def PopulatePositionList(file):
+    PositionList = {}
+    filePath = Path(file)
+    if(filePath.is_file()):
+        with open(file) as DeltaVMapFile:
+            DeltaVMapContents = json.load(DeltaVMapFile)
+    
+    #go throught the DeltaVMapContents and add the Name to the NameList
+    for Nodes in DeltaVMapContents:
+        PositionList[Nodes["Id"]] = Nodes["Position-x"], Nodes["Position-y"]
+
+    return PositionList
 
 #print the DeltaVMap to console
 def PrintDeltaVMap(DeltaVMap, NameList):
@@ -83,3 +105,6 @@ def GetDeltaVMap():
 #returns a Copy of the Populated NameList
 def GetNameList():
     return PopulateNameList("./KnowledgeBase/DeltaVMap.json")
+
+def GetPositionList():
+    return PopulatePositionList("./KnowledgeBase/DeltaVMap.json")
