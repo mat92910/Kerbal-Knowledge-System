@@ -43,6 +43,7 @@ def PopulateDeltaVMap(file):
         with open(file) as DeltaVMapFile:
             DeltaVMapContents = json.load(DeltaVMapFile)
     
+    #go throught the DeltaVMapContents and add the links to the DeltaVMap
     for Nodes in DeltaVMapContents:
         for Links in Nodes["Links"]:
             AddLinkToDeltaVMap(DeltaVMap, Nodes["Id"], Links["Id"], Links["DeltaV"], Links["MaxPlaneChangeDeltaV"], Links["Aerobreaking"])
@@ -57,6 +58,7 @@ def PopulateNameList(file):
         with open(file) as DeltaVMapFile:
             DeltaVMapContents = json.load(DeltaVMapFile)
     
+    #go throught the DeltaVMapContents and add the Name to the NameList
     for Nodes in DeltaVMapContents:
         NameList[Nodes["Id"]] = Nodes["Name"]
 
