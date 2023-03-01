@@ -35,7 +35,7 @@ nameList = {x: v.replace(' ', '\n')
 
 AvailableNodes = []
 AvailableNodesNames = {}
-AvailableNodes = KerbalKnowledgeSystem.FindAvailableNodeFromDeltaV(AvailableNodes, 300, 91050, 0, 0, 0)
+AvailableNodes = KerbalKnowledgeSystem.FindAvailableNodeFromDeltaV(AvailableNodes, 300, 6500, 0, 0, 0)
 
 for Nodes in AvailableNodes:
     AvailableNodesNames[Nodes] = nameList[Nodes]
