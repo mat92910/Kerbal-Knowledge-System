@@ -35,14 +35,17 @@ nameList = {x: v.replace(' ', '\n')
 
 AvailableNodes = []
 AvailableNodesNames = {}
-AvailableNodes = KerbalKnowledgeSystem.FindAvailableNodeFromDeltaV(AvailableNodes, 300, 6500, 0, 0, 0)
+color_map = []
+AvailableNodes = KerbalKnowledgeSystem.FindAvailableNodeFromDeltaV(AvailableNodes, 300, 4500, 0, 0, 0)
 
 for Nodes in AvailableNodes:
     AvailableNodesNames[Nodes] = nameList[Nodes]
 
 G = GraphGivenNodes(AvailableNodes)
 
+color_map = ['green' if node == AvailableNodes[0] else 'blue' for node in G] 
+
 pos = nx.get_node_attributes(G, "pos")
 plt.figure(3,figsize=(18,9))
-nx.draw(G, pos, with_labels = True, labels=AvailableNodesNames, node_shape="s", font_size=10, arrowstyle="-", bbox=dict(facecolor="skyblue", edgecolor='black', boxstyle='round,pad=0.2'))
+nx.draw(G, pos, with_labels = True, labels=AvailableNodesNames, node_color=color_map, font_color='whitesmoke', node_size=2500, node_shape="s", font_size=10, arrowstyle="-")
 plt.show()
