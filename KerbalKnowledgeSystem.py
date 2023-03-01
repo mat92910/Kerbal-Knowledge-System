@@ -3,7 +3,7 @@ import DeltaVMap
 # find the nodes that can be accesses with the given start node and delta v as either a single value or list of delta v of stages
 def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, PlaneChange):
     deltaVmap = DeltaVMap.GetDeltaVMap()
-    DeltaV = sum(DeltaV)
+    
 
     # start with adding the start node to the return list, if it makes it here it's added
     Nodes.append(Start)
@@ -41,9 +41,15 @@ def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, P
 
     return Nodes
 
+def SplitStagesDeltaV(Stages):
+    for i in Stages:
+        return sum(Stages)
+
+
 # veery fancy main \\\(>>w<<)}}}}
 AvailableNodes = []
-AvailableNodes = FindAvailableNodeFromDeltaV(AvailableNodes, 300, 5500, 0, 0, 0)
+Stages = [1000 ,4000]
+AvailableNodes = FindAvailableNodeFromDeltaV(AvailableNodes, 300, SplitStagesDeltaV(Stages), 0, 0, 0)
 NameList = DeltaVMap.GetNameList()
 for Nodes in AvailableNodes:
     print(NameList[Nodes])
