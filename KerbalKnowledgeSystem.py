@@ -7,31 +7,27 @@ def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, P
     Nodes.append(Start)
 
     links = DeltaVMap.GetLinksFromDeltaVMap(deltaVmap, Start)
-    for i in links:
-        if(i in Nodes):
+    for point in links:
+        if(point in Nodes):
             continue
-        v = 0
-        temp = DeltaVMap.GetValuesFromDeltaVMap(deltaVmap, Start, i)
-        if(Aerobreaking):
-            if(temp[2] & (not RoundTrip)):
-                v = v + temp[0]*0.10
-            elif(RoundTrip & (not temp[2])):
-                v = v + temp[0]*2
-            elif(temp[2] & RoundTrip):
-                v = v + temp[0]*0.10 + temp[0]
+        DeltaVLoss = 0
+        temp = DeltaVMap.GetValuesFromDeltaVMap(deltaVmap, Start, point)
+        if(Aerobreaking & temp[2]):
+            if(RoundTrip):
+                DeltaVLoss += (temp[0]*0.10 + temp[0])
             else:
-                v = v + temp[0]
+                DeltaVLoss += temp[0]*0.10
         else:
             if(RoundTrip):
-                v = v + temp[0]*2
+                DeltaVLoss += temp[0]*2
             else:
-                v = v + temp[0]
+                DeltaVLoss += temp[0]
         if(PlaneChange):
-            v = v + temp[1]
+            DeltaVLoss += temp[1]
 
-        v = (DeltaV - v)
-        if(v > 0):
-           Nodes = FindAvailableNodeFromDeltaV(Nodes, i, v, RoundTrip, Aerobreaking, PlaneChange)
+        NewDeltaV = (DeltaV - DeltaVLoss)
+        if(NewDeltaV >= 0):
+           Nodes = FindAvailableNodeFromDeltaV(Nodes, point, NewDeltaV, RoundTrip, Aerobreaking, PlaneChange)
 
     return Nodes
 
