@@ -41,15 +41,16 @@ def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, P
 
     return Nodes
 
-def SplitStagesDeltaV(Stages):
+def StagesDeltaV(Stages):
     for i in Stages:
         return sum(Stages)
 
 
 # veery fancy main \\\(>>w<<)}}}}
 AvailableNodes = []
-Stages = [1000 ,4000]
-AvailableNodes = FindAvailableNodeFromDeltaV(AvailableNodes, 300, SplitStagesDeltaV(Stages), 0, 0, 0)
+Stages = [1000 ,000]
+StartingPoint = 300
+AvailableNodes = FindAvailableNodeFromDeltaV(AvailableNodes, StartingPoint, StagesDeltaV(Stages), 0, 0, 0)
 NameList = DeltaVMap.GetNameList()
 for Nodes in AvailableNodes:
     print(NameList[Nodes])
