@@ -46,6 +46,7 @@ def GetValuesFromDeltaVMap(DeltaVMap, node, link):
 #Populates DeltaVMap with values with given file
 def PopulateDeltaVMap(file):
     DeltaVMap = {}
+    DeltaVMapContents = False
     filePath = Path(file)
     if(filePath.is_file()):
         with open(file) as DeltaVMapFile:
@@ -61,6 +62,7 @@ def PopulateDeltaVMap(file):
 #Populates NameList with values with given file
 def PopulateNameList(file):
     NameList = {}
+    DeltaVMapContents = False
     filePath = Path(file)
     if(filePath.is_file()):
         with open(file) as DeltaVMapFile:
@@ -75,6 +77,7 @@ def PopulateNameList(file):
 #Populates PositionList with values with given file
 def PopulatePositionList(file):
     PositionList = {}
+    DeltaVMapContents = False
     filePath = Path(file)
     if(filePath.is_file()):
         with open(file) as DeltaVMapFile:
