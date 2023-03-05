@@ -1,9 +1,14 @@
 import tkinter as tk
+import networkx as nx
+import matplotlib.pyplot as plt
+import Inference
+import DeltaVMap
+import DeltaVGraph
 
 # create the main window
 root = tk.Tk()
 root.title("Delta V Calculator")
-root.geometry("300x400")
+root.geometry("300x600")
 
 # create a label for the title above the frame
 title_label = tk.Label(root, wraplength=200, text="Enter your Delta V per stage or simply enter your total Delta V:")
@@ -61,10 +66,20 @@ def clear_list():
 clear_button = tk.Button(root, text="Clear", command=clear_list)
 clear_button.pack()
 
+# datatype of menu text
+clicked = tk.StringVar()
+
+nameList = DeltaVMap.GetNameList()
+
+# Create Dropdown menu
+drop = tk.OptionMenu( root , clicked , *nameList )
+drop.pack()
+
 # create an checkbutton to see if total deltav needs to be cut in haft 
 is_checked = tk.IntVar()
 checkbutton = tk.Checkbutton(root, text="Round trip", onvalue=1, offvalue=0, variable=is_checked)
 checkbutton.pack()
+
 
 # function to generate an array with the values in the list and pass on the checkbutton
 def generate_array():
@@ -76,6 +91,34 @@ def generate_array():
     print(array)
     print(is_checked.get())
     # root.quit()
+
+# function to add the input value to the list
+def DisplayGraph():
+    nameList = DeltaVMap.GetNameList()
+
+    nameList = {x: v.replace(' ', '\n')
+            for x, v in nameList.items()}
+
+    AvailableNodes = []
+    AvailableNodesNames = {}
+    color_map = []
+    AvailableNodes = Inference.FindAvailableNodeFromDeltaV(AvailableNodes, 300, 4500, 0, 0, 0)
+
+    for Nodes in AvailableNodes:
+        AvailableNodesNames[Nodes] = nameList[Nodes]
+
+    G = DeltaVGraph.GraphGivenNodes(AvailableNodes)
+
+    color_map = ['green' if node == AvailableNodes[0] else 'blue' for node in G] 
+
+    pos = nx.get_node_attributes(G, "pos")
+    plt.figure(3,figsize=(18,9))
+    nx.draw(G, pos, with_labels = True, labels=AvailableNodesNames, node_color=color_map, font_color='whitesmoke', node_size=2500, node_shape="s", font_size=10, arrowstyle="-")
+    plt.show()
+
+# create a "Graph" button to Graph the list and array
+graph_button = tk.Button(root, text="Graph", command=DisplayGraph)
+graph_button.pack()
 
 # create a "Calculate" button to generate the array and start the expert system
 calculate_button = tk.Button(root, text="Calculate", command=generate_array)
