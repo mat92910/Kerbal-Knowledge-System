@@ -4,20 +4,15 @@ import DeltaVMap
 def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, PlaneChange):
     deltaVmap = DeltaVMap.GetDeltaVMap()
     nameList = DeltaVMap.GetNameList()
-    print("")
     # start with adding the start node to the return list, if it makes it here it's added
     if Start not in Nodes:
         Nodes.append(Start)
-        
-        print("******ADDED******: ", nameList[Start])
 
     # get node links to the start node from the map and loop them
     links = DeltaVMap.GetLinksFromDeltaVMap(deltaVmap, Start)
     for point in links:
-        print("LOOP")
         # check if in list already to avoid looping 
         if(point in Nodes):
-            print("slipped")
             continue
 
         # get the value for delta v loss calculations    temp[0]=delta v cost  temp[1]=plane change cost   temp[2]=calculate aero bool
@@ -38,17 +33,12 @@ def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, P
         if(PlaneChange):
             DeltaVLoss += temp[1] 
 
-        print("Delta v: ", DeltaV)
-        print("loss: ", DeltaVLoss)
-        print("point: ", nameList[point])
-        
         # if the loss is less than the delta v, sent that amount to it's links and keeping the array
         NewDeltaV = (DeltaV[0] - DeltaVLoss)
         if(NewDeltaV >= 0):
-            NewList = DeltaV
+            NewList = DeltaV.copy() # .copy() IMPORTANT
             NewList[0] = NewDeltaV
             Nodes = FindAvailableNodeFromDeltaV(Nodes, point, NewList, RoundTrip, Aerobreaking, PlaneChange)
-            #print("nodes: ", nodes)
         else:
             # check if more stages availble to pass on delta v while staging
             if(len(DeltaV) > 1):
@@ -66,10 +56,10 @@ def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, P
     #loop end     
     
     return Nodes
-
-nodes = []
-Stages = [20000]
-nodes = FindAvailableNodeFromDeltaV(nodes, 300, Stages, 0, 0, 0)
-nameList = DeltaVMap.GetNameList()
-for key in nodes:
-    print(nameList[key])
+#
+#nodes = []
+#Stages = [3800]
+#nodes = FindAvailableNodeFromDeltaV(nodes, 300, Stages, 0, 0, 0)
+#nameList = DeltaVMap.GetNameList()
+#for key in nodes:
+#    print(nameList[key])
