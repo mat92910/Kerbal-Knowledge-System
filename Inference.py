@@ -17,17 +17,18 @@ def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, P
 
         # get the value for delta v loss calculations    temp[0]=delta v cost  temp[1]=plane change cost   temp[2]=calculate aero bool
         temp = Blackboard.GetValuesFromDeltaVMap(deltaVmap, Start, point)
+        tempReturn = Blackboard.GetValuesFromDeltaVMap(deltaVmap, point, Start)
         DeltaVLoss = 0
 
         # simple if checks for delta v loss with diffrent checks
-        if(Aerobreaking & temp[2]):
+        if(Aerobreaking & (temp[2] or tempReturn[2])):
             if(RoundTrip):
-                DeltaVLoss += (temp[0]*0.10 + temp[0])
+                DeltaVLoss += (temp[0]*0.10 + tempReturn[0])
             else:
                 DeltaVLoss += temp[0]*0.10
         else:
             if(RoundTrip):
-                DeltaVLoss += temp[0]*2
+                DeltaVLoss += temp[0] + tempReturn[0]
             else:
                 DeltaVLoss += temp[0]
         if(PlaneChange):
