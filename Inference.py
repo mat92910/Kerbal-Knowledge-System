@@ -17,6 +17,7 @@ def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, P
         print("LOOP")
         # check if in list already to avoid looping 
         if(point in Nodes):
+            print("slipped")
             continue
 
         # get the value for delta v loss calculations    temp[0]=delta v cost  temp[1]=plane change cost   temp[2]=calculate aero bool
@@ -38,7 +39,6 @@ def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, P
             DeltaVLoss += temp[1] 
 
         print("Delta v: ", DeltaV)
-        print("temp: ", temp[0])
         print("loss: ", DeltaVLoss)
         print("point: ", nameList[point])
         
@@ -48,6 +48,7 @@ def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, P
             NewList = DeltaV
             NewList[0] = NewDeltaV
             Nodes = FindAvailableNodeFromDeltaV(Nodes, point, NewList, RoundTrip, Aerobreaking, PlaneChange)
+            #print("nodes: ", nodes)
         else:
             # check if more stages availble to pass on delta v while staging
             if(len(DeltaV) > 1):
