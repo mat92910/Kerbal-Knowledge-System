@@ -22,10 +22,16 @@ def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, P
 
         # simple if checks for delta v loss with diffrent checks
         if(Aerobreaking & (temp[2] or tempReturn[2])):
-            if(RoundTrip):
-                DeltaVLoss += (temp[0]*0.10 + tempReturn[0])
-            else:
-                DeltaVLoss += temp[0]*0.10
+            if(temp[2]):
+                if(RoundTrip):
+                    DeltaVLoss += (temp[0]*0.10 + tempReturn[0])
+                else:
+                    DeltaVLoss += temp[0]*0.10
+            elif(tempReturn[2]):
+                if(RoundTrip):
+                    DeltaVLoss += (temp[0]*0.10 + tempReturn[0])
+                else:
+                    DeltaVLoss += temp[0]*0.10
         else:
             if(RoundTrip):
                 DeltaVLoss += temp[0] + tempReturn[0]
