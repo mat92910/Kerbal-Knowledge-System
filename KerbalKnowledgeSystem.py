@@ -111,7 +111,6 @@ class Ui_MainWindow(object):
         DeltaV = self.DeltaVNumber.value()
         self.DeltaVStages.append(DeltaV)
         self.DeltaVList.insertItem(len(self.DeltaVStages), "Stage " + str(len(self.DeltaVStages)) + " Delta-V: " + str(DeltaV))
-        print("DeltaV: " + str(DeltaV))
 
     #clear the Delta-V stages
     def ClearDeltaV(self):
