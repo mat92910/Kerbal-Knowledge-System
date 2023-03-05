@@ -4,7 +4,6 @@ import DeltaVMap
 def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, PlaneChange):
     deltaVmap = DeltaVMap.GetDeltaVMap()
 
-    
     # start with adding the start node to the return list, if it makes it here it's added
     if Start not in Nodes:
         Nodes.append(Start)
@@ -54,8 +53,7 @@ def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, P
                     NewList.append(DeltaV[i])
                 NewList[0] += extra
 
-                Nodes = FindAvailableNodeFromDeltaV(Nodes, Start, NewList, RoundTrip, Aerobreaking, PlaneChange)
-              
+                Nodes = FindAvailableNodeFromDeltaV(Nodes, Start, NewList, RoundTrip, Aerobreaking, PlaneChange)         
     #loop end     
     
     return Nodes
