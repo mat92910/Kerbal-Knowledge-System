@@ -28,7 +28,7 @@ def GetLinksFromDeltaVMap(DeltaVMap, node):
 #return x, y of position else return false
 def GetPositionFromDeltaVMap(DeltaVMap, node):
     if(node in DeltaVMap.keys()):
-        return DeltaVMap[node], DeltaVMap[node]
+        return DeltaVMap[node]["Position-x"], DeltaVMap[node]["Position-y"]
     else:
         return False
 
