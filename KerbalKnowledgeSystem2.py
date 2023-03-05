@@ -8,6 +8,10 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtCore import Qt, QSize
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
+import networkx as nx
+import matplotlib.pyplot as plt
 import Inference
 import DeltaVMap
 import DeltaVGraph
@@ -55,9 +59,6 @@ class Ui_MainWindow(object):
         self.AddDeltaV = QtWidgets.QPushButton(parent=self.centralwidget)
         self.AddDeltaV.setGeometry(QtCore.QRect(250, 50, 80, 25))
         self.AddDeltaV.setObjectName("AddDeltaV")
-        self.Graph = QtWidgets.QWidget(parent=self.centralwidget)
-        self.Graph.setGeometry(QtCore.QRect(370, 20, 501, 501))
-        self.Graph.setObjectName("Graph")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -67,6 +68,10 @@ class Ui_MainWindow(object):
         FillStartingPosition(self.StartingLocation)
         self.StartingLocation.setStyleSheet("combobox-popup: 0;")
         self.AddDeltaV.clicked.connect(self.printing)
+        
+
+        canvas = plt.plot(G)
+        self.Graph = canvas
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -83,6 +88,28 @@ class Ui_MainWindow(object):
     #custom Functions
     def printing(self):
         print("Combobox: " + str(self.StartingLocation.itemData(self.StartingLocation.currentIndex())))
+
+    def CalculateGraph():
+        nameList = DeltaVMap.GetNameList()
+
+        nameList = {x: v.replace(' ', '\n')
+                for x, v in nameList.items()}
+
+        AvailableNodes = []
+        AvailableNodesNames = {}
+        color_map = []
+        AvailableNodes = Inference.FindAvailableNodeFromDeltaV(AvailableNodes, 300, [4500], 0, 0, 0)
+
+        for Nodes in AvailableNodes:
+            AvailableNodesNames[Nodes] = nameList[Nodes]
+
+        G = DeltaVGraph.GraphGivenNodes(AvailableNodes)
+
+        color_map = ['green' if node == AvailableNodes[0] else 'blue' for node in G] 
+
+        pos = nx.get_node_attributes(G, "pos")
+        plt.figure(3,figsize=(18,9))
+        nx.draw(G, pos, with_labels = True, labels=AvailableNodesNames, node_color=color_map, font_color='whitesmoke', node_size=2500, node_shape="s", font_size=10, arrowstyle="-")
 
 
 
