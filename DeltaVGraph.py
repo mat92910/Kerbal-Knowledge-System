@@ -21,5 +21,5 @@ def GraphGivenNodes(AvailableNodes):
                 #only if link is in AvailableNodes add edge
                 if((link in AvailableNodes) and (key in AvailableNodes)):
                     G.add_edge(key, link, weight=DeltaVMap.GetValuesFromDeltaVMap(deltaVMap, key, link)[0])
-    
+    #return graph
     return G

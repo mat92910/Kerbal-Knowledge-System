@@ -23,6 +23,7 @@ def FillStartingPosition(ComboBox):
     for key in nameList.keys():
         ComboBox.addItem(nameList[key], key)
 
+#Create a main window object with all the diffrent widgets for the UI
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -32,12 +33,15 @@ class Ui_MainWindow(object):
         self.RoundTrip = QtWidgets.QCheckBox(parent=self.centralwidget)
         self.RoundTrip.setGeometry(QtCore.QRect(30, 450, 121, 23))
         self.RoundTrip.setObjectName("RoundTrip")
+        self.RoundTrip.setToolTip('Select if round trip')
         self.Aerobreaking = QtWidgets.QCheckBox(parent=self.centralwidget)
         self.Aerobreaking.setGeometry(QtCore.QRect(30, 470, 121, 23))
         self.Aerobreaking.setObjectName("Aerobreaking")
+        self.Aerobreaking.setToolTip('Will calculate Delta-V with the use of aerobreaking.')
         self.PlaneChange = QtWidgets.QCheckBox(parent=self.centralwidget)
         self.PlaneChange.setGeometry(QtCore.QRect(30, 490, 121, 23))
         self.PlaneChange.setObjectName("PlaneChange")
+        self.PlaneChange.setToolTip('Will calculate Delta-V with the use of plane changing.')
         self.DeltaVList = QtWidgets.QListWidget(parent=self.centralwidget)
         self.DeltaVList.setGeometry(QtCore.QRect(30, 90, 301, 311))
         self.DeltaVList.setObjectName("DeltaVList")
@@ -47,6 +51,7 @@ class Ui_MainWindow(object):
         self.StartingLocation = QtWidgets.QComboBox(parent=self.centralwidget)
         self.StartingLocation.setGeometry(QtCore.QRect(30, 420, 181, 25))
         self.StartingLocation.setObjectName("StartingLocation")
+        self.StartingLocation.setToolTip('Starting Location.')
         self.DeltaVLabel = QtWidgets.QLabel(parent=self.centralwidget)
         self.DeltaVLabel.setGeometry(QtCore.QRect(30, 20, 91, 17))
         self.DeltaVLabel.setObjectName("DeltaVLabel")
@@ -57,15 +62,18 @@ class Ui_MainWindow(object):
         self.AddDeltaVButton = QtWidgets.QPushButton(parent=self.centralwidget)
         self.AddDeltaVButton.setGeometry(QtCore.QRect(250, 50, 80, 25))
         self.AddDeltaVButton.setObjectName("AddDeltaV")
+        self.AddDeltaVButton.setToolTip('Add Delta-V to stage list')
         self.Graph = QtWidgets.QWidget(parent=self.centralwidget)
         self.Graph.setGeometry(QtCore.QRect(370, 20, 501, 501))
         self.Graph.setObjectName("Graph")
         self.Calculate = QtWidgets.QPushButton(parent=self.centralwidget)
         self.Calculate.setGeometry(QtCore.QRect(30, 520, 181, 25))
         self.Calculate.setObjectName("Calculate")
+        self.Calculate.setToolTip('Calculate and display graph.')
         self.Clear = QtWidgets.QPushButton(parent=self.centralwidget)
         self.Clear.setGeometry(QtCore.QRect(250, 420, 80, 25))
         self.Clear.setObjectName("Clear")
+        self.Clear.setToolTip('Clear Delta-V list.')
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -74,7 +82,7 @@ class Ui_MainWindow(object):
         #Custom Variables
         self.DeltaVStages = []
 
-        #Custom Linking
+        #Custom Linking for Widgets
         FillStartingPosition(self.StartingLocation)
         self.StartingLocation.setStyleSheet("combobox-popup: 0;")
         self.AddDeltaVButton.clicked.connect(self.AddDeltaV)
@@ -97,41 +105,50 @@ class Ui_MainWindow(object):
         self.Clear.setText(_translate("MainWindow", "Clear Stages"))
 
     #custom Functions
+
+    #Add the Delta-V value to the list for the stages
     def AddDeltaV(self):
         DeltaV = self.DeltaVNumber.value()
         self.DeltaVStages.append(DeltaV)
         self.DeltaVList.insertItem(len(self.DeltaVStages), "Stage " + str(len(self.DeltaVStages)) + " Delta-V: " + str(DeltaV))
         print("DeltaV: " + str(DeltaV))
 
+    #clear the Delta-V stages
     def ClearDeltaV(self):
         self.DeltaVStages.clear()
         self.DeltaVList.clear()
 
+    #Display the Possible Location Graph
     def CalculateGraph(self):
+        #if no stages in DeltaV dont display graph
         if(len(self.DeltaVStages) < 1):
             print("No Stages")
         else:
-            print(self.StartingLocation.currentData())
-            print(self.DeltaVStages)
-            print(self.RoundTrip.isChecked())
+            #get name list and change spaces for new lines
             nameList = DeltaVMap.GetNameList()
-
             nameList = {x: v.replace(' ', '\n')
                     for x, v in nameList.items()}
 
+            #create empty list for later
             AvailableNodes = []
             AvailableNodesNames = {}
             color_map = []
-            DeltaVStages=copy.deepcopy(self.DeltaVStages)
+
+            #get availible nodes given Starting point, Delta-V Stages, round trip, Aerobreaking, Plane change.
+            DeltaVStages = copy.deepcopy(self.DeltaVStages)
             AvailableNodes = Inference.FindAvailableNodeFromDeltaV(AvailableNodes, self.StartingLocation.currentData(), DeltaVStages, self.RoundTrip.isChecked(), self.Aerobreaking.isChecked(), self.PlaneChange.isChecked())
 
+            #Populate AvailableNodesNames with only the names of available nodes
             for Nodes in AvailableNodes:
                 AvailableNodesNames[Nodes] = nameList[Nodes]
 
+            #Create graph given the available nodes
             G = DeltaVGraph.GraphGivenNodes(AvailableNodes)
 
+            #Set Starting node as green
             color_map = ['green' if node == AvailableNodes[0] else 'blue' for node in G] 
 
+            #Draw the graph
             pos = nx.get_node_attributes(G, "pos")
             plt.figure(3,figsize=(18,9))
             nx.draw(G, pos, with_labels = True, labels=AvailableNodesNames, node_color=color_map, font_color='whitesmoke', node_size=2500, node_shape="s", font_size=10, arrowstyle="-")
