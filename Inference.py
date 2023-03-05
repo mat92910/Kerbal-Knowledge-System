@@ -53,7 +53,7 @@ def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, P
             Nodes = FindAvailableNodeFromDeltaV(Nodes, point, NewList, RoundTrip, Aerobreaking, PlaneChange)
         else:
             if(len(DeltaV) > 1): 
-                print("    POP    ")
+                #print("    POP    ")
                 extra = DeltaV[0]
                 NewList = []
                 for i in range(1,len(DeltaV)):
