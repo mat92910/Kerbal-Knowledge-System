@@ -1,22 +1,22 @@
-import DeltaVMap
+import Blackboard
 
 # find the nodes that can be accesses with the given start node and delta v as either a list of delta v of stages or a single value in a list
 def FindAvailableNodeFromDeltaV(Nodes, Start, DeltaV, RoundTrip, Aerobreaking, PlaneChange):
-    deltaVmap = DeltaVMap.GetDeltaVMap()
-    nameList = DeltaVMap.GetNameList()
+    deltaVmap = Blackboard.GetDeltaVMap()
+    nameList = Blackboard.GetNameList()
     # start with adding the start node to the return list, if it makes it here it's added
     if Start not in Nodes:
         Nodes.append(Start)
 
     # get node links to the start node from the map and loop them
-    links = DeltaVMap.GetLinksFromDeltaVMap(deltaVmap, Start)
+    links = Blackboard.GetLinksFromDeltaVMap(deltaVmap, Start)
     for point in links:
         # check if in list already to avoid looping 
         if(point in Nodes):
             continue
 
         # get the value for delta v loss calculations    temp[0]=delta v cost  temp[1]=plane change cost   temp[2]=calculate aero bool
-        temp = DeltaVMap.GetValuesFromDeltaVMap(deltaVmap, Start, point)
+        temp = Blackboard.GetValuesFromDeltaVMap(deltaVmap, Start, point)
         DeltaVLoss = 0
 
         # simple if checks for delta v loss with diffrent checks

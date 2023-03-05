@@ -1,13 +1,13 @@
 import networkx as nx
-import DeltaVMap
+import Blackboard
 
 #create graph with given AvailableNodes
 #returns nx.DiGraph object
 def GraphGivenNodes(AvailableNodes):
 
-    deltaVMap = DeltaVMap.GetDeltaVMap()
-    posList = DeltaVMap.GetPositionList()
-    nameList = DeltaVMap.GetNameList()
+    deltaVMap = Blackboard.GetDeltaVMap()
+    posList = Blackboard.GetPositionList()
+    nameList = Blackboard.GetNameList()
 
     G = nx.DiGraph()
 
@@ -17,9 +17,9 @@ def GraphGivenNodes(AvailableNodes):
         if(key in AvailableNodes):
             G.add_node(key, name=nameList[key], pos=posList[key])
             #iterate through all links
-            for link in DeltaVMap.GetLinksFromDeltaVMap(deltaVMap, key):
+            for link in Blackboard.GetLinksFromDeltaVMap(deltaVMap, key):
                 #only if link is in AvailableNodes add edge
                 if((link in AvailableNodes) and (key in AvailableNodes)):
-                    G.add_edge(key, link, weight=DeltaVMap.GetValuesFromDeltaVMap(deltaVMap, key, link)[0])
+                    G.add_edge(key, link, weight=Blackboard.GetValuesFromDeltaVMap(deltaVMap, key, link)[0])
     #return graph
     return G

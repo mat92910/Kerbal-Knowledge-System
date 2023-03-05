@@ -2,7 +2,7 @@ import tkinter as tk
 import networkx as nx
 import matplotlib.pyplot as plt
 import Inference
-import DeltaVMap
+import Blackboard
 import DeltaVGraph
 
 # create the main window
@@ -69,7 +69,7 @@ clear_button.pack()
 # datatype of menu text
 clicked = tk.StringVar()
 
-nameList = DeltaVMap.GetNameList()
+nameList = Blackboard.GetNameList()
 
 # Create Dropdown menu
 drop = tk.OptionMenu( root , clicked , *nameList )
@@ -94,7 +94,7 @@ def generate_array():
 
 # function to add the input value to the list
 def DisplayGraph():
-    nameList = DeltaVMap.GetNameList()
+    nameList = Blackboard.GetNameList()
 
     nameList = {x: v.replace(' ', '\n')
             for x, v in nameList.items()}

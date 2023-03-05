@@ -13,12 +13,12 @@ from matplotlib.figure import Figure
 import networkx as nx
 import matplotlib.pyplot as plt
 import Inference
-import DeltaVMap
+import Blackboard
 import DeltaVGraph
 import copy
 
 def FillStartingPosition(ComboBox):
-    nameList = DeltaVMap.GetNameList()
+    nameList = Blackboard.GetNameList()
 
     for key in nameList.keys():
         ComboBox.addItem(nameList[key], key)
@@ -125,7 +125,7 @@ class Ui_MainWindow(object):
             print("No Stages")
         else:
             #get name list and change spaces for new lines
-            nameList = DeltaVMap.GetNameList()
+            nameList = Blackboard.GetNameList()
             nameList = {x: v.replace(' ', '\n')
                     for x, v in nameList.items()}
 
