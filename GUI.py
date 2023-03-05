@@ -102,7 +102,7 @@ def DisplayGraph():
     AvailableNodes = []
     AvailableNodesNames = {}
     color_map = []
-    AvailableNodes = Inference.FindAvailableNodeFromDeltaV(AvailableNodes, 300, 4500, 0, 0, 0)
+    AvailableNodes = Inference.FindAvailableNodeFromDeltaV(AvailableNodes, 300, [4500], 0, 0, 0)
 
     for Nodes in AvailableNodes:
         AvailableNodesNames[Nodes] = nameList[Nodes]
