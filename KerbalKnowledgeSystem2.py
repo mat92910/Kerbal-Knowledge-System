@@ -7,6 +7,7 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtCore import Qt, QSize
 import Inference
 import DeltaVMap
 import DeltaVGraph
@@ -43,6 +44,7 @@ class Ui_MainWindow(object):
         self.StartingLocation = QtWidgets.QComboBox(parent=self.centralwidget)
         self.StartingLocation.setGeometry(QtCore.QRect(30, 420, 181, 25))
         self.StartingLocation.setObjectName("StartingLocation")
+        self.StartingLocation.view().setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
         self.DeltaVLabel = QtWidgets.QLabel(parent=self.centralwidget)
         self.DeltaVLabel.setGeometry(QtCore.QRect(30, 20, 91, 17))
         self.DeltaVLabel.setObjectName("DeltaVLabel")
@@ -63,6 +65,7 @@ class Ui_MainWindow(object):
 
         #Custom Linking
         FillStartingPosition(self.StartingLocation)
+        self.StartingLocation.setStyleSheet("combobox-popup: 0;")
         self.AddDeltaV.clicked.connect(self.printing)
 
         self.retranslateUi(MainWindow)
